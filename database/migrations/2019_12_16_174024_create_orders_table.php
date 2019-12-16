@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('customer_name', 128);
             $table->string('customer_phone_number', 32);
             $table->text('address');
@@ -27,7 +27,7 @@ class CreateOrdersTable extends Migration
             $table->string('payment_status', 16)->default('pending');
             $table->string('payment_details')->nullable();
             $table->string('operational_status', 16)->default('pending');
-            $table->unsignedInteger('processed_by')->nullable();
+            $table->unsignedBigInteger('processed_by')->nullable();                     
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('processed_by')->references('id')->on('users')->onDelete('cascade');

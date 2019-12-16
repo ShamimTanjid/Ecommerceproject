@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('in_stock')->default(1);
             $table->decimal('price', 8, 2);
             $table->decimal('sale_price', 8, 2)->nullable();
-            $table->tinyInteger('Active')->default(1);        
+            $table->tinyInteger('Active')->default(1);    
             $table->timestamps();
         });
     }
